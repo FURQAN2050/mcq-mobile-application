@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+        <ion-title>Subjects</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="align">
+
+    <ion-select (ionChange)="subject()"placeholder="Select Subject" >
+      <ion-select-option *ngFor="let subject of subjects"value="f">{{subject.name}}</ion-select-option>
+     
+     
+    </ion-select>
+    </div>
+
+  
+</ion-content>

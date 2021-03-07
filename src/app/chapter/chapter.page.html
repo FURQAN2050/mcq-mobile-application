@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Chapters</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-list>
+    
+  <ion-item (click)="question()" *ngFor="let chapter of chapters">
+    <ion-thumbnail style="height: 80px;width: 80px;">
+      <img src="../../assets/chapter.png" alt="">
+    </ion-thumbnail>      
+<ion-label>    
+  {{chapter.name}}
+  <br>
+
+  <ion-note>
+    <b>{{chapter.chapterName}}</b>
+  </ion-note>
+</ion-label>
+
+
+
+  </ion-item>
+    </ion-list>
+</ion-content>

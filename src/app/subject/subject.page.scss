@@ -3,4 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color:white;
+}
+ion-content{
+  --background: url(../../assets/app-background.jpg) 0 0/100% 100% no-repeat;
 }

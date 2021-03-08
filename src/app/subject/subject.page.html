@@ -1,7 +1,11 @@
 <ion-content>
   <div class="align">
-    <ion-select (ionChange)="subject()"placeholder="Select Subject" >
-      <ion-select-option *ngFor="let subject of subjects"value="f">{{subject.name}}</ion-select-option>
-    </ion-select>
+    <ion-card>
+
+      <ion-select style="color: black;" (ionChange)="subject()"placeholder="Select Subject" >
+        <ion-select-option *ngFor="let subject of subjects"value="f">{{subject.name}}</ion-select-option>
+      </ion-select>
+    </ion-card>
+    
     </div>
 </ion-content>

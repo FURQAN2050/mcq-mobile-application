@@ -1,9 +1,44 @@
+<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <ion-header>
   <ion-toolbar>
-    <ion-title>signup</ion-title>
+    <ion-title style="font-family: Audiowide">Signup! Its Easy</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content color="primary">
+  <div id="autofit" style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: center;">
+    <ion-card style="width: 100%;">
+      <ion-card-header>
+        <ion-card-subtitle style="text-align: center;">Welcome</ion-card-subtitle>
+        <ion-card-title style="text-align: center;"><b>Please Signup!</b></ion-card-title>
+      </ion-card-header>
+      <div style="margin: auto; text-align: center;">
+        <i class="fa fa-id-card-o" style="font-size:48px;"></i>
+        <ion-item>
+          <ion-input placeholder="Name"></ion-input>
+        </ion-item> 
+        <ion-item>
+          <ion-input placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="Password" placeholder="Password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="Password" placeholder="Confirm Password"></ion-input>
+        </ion-item> 
+        <div style="height: 100%; display: flex; align-items: center; justify-content: center; margin: 5px;">
+          <ion-button color="secondary" style="padding: 5px 5px;">
+            <ion-icon name="create-outline" style="padding-right: 5px;"></ion-icon>
+            Signup
+          </ion-button>
+        </div>
+      </div>
+    </ion-card>
+  </div>    
 </ion-content>
+<ion-footer>
+  <ion-item >
+    <ion-label style="text-align: center; font-size: 14px; margin-top: 0%;">ALready have an account?<a><u>Login</u></a></ion-label>
+  </ion-item>
+</ion-footer>

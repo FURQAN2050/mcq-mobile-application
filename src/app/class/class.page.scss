@@ -1,19 +1,9 @@
 .align{
-//     margin: 0;
-//   position: absolute;
-//   top: 45%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-
-// margin: 0;
-// position: absolute;
-// top: 45%;
-// left: 50%;
-// -ms-transform: translate(-50%, -50%);
-// transform: translate(-50%, -50%);
-
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+ion-content{
+  --background: url(../../assets/app-background.jpg) 0 0/100% 100% no-repeat;
 }

@@ -1,55 +1,56 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>MCQ</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
+
+<ion-content padding margin>
   <ion-card class="div-centered">
-    <ion-card-header color="primary">
-    <ion-card-subtitle style="font-weight: bold;text-align: center;">Choose The Correct Answer</ion-card-subtitle>
+    <ion-card-header>
+    <ion-card-subtitle color="primary" style="font-weight: bold;text-align: center;">Choose The Correct Answer</ion-card-subtitle>
 
     </ion-card-header>
-    <ion-item>
+    <ion-item class="font">
       {{question}}
     </ion-item>
-    
-    <ion-item  *ngFor="let choice of choices">
+     
+    <!-- <div *ngFor="let choice of choices">
       <ion-checkbox (ionChange)="confirm($event)" [(ngModel)]="this.Answer" style="margin-right: 5px;" color="primary"></ion-checkbox>
-    {{choice.name}}
-    </ion-item>
+      {{choice.name}}
+    </div>
     <ion-button >
       <ion-icon name="arrow-forward-outline"></ion-icon>
-    </ion-button>
-    <!-- <ion-item >
+    </ion-button> -->
+
+    <!-- <div class="font"> -->
+    <ion-item>
       <ion-checkbox [(ngModel)]="Answer.name1" (ionChange)="checkedOne($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
       {{name1}}
-
     </ion-item>
+     
+    <!-- </div> -->
+      
 
-    <ion-item>
-      <ion-checkbox [(ngModel)]="Answer.name2" (ionChange)="checkedTwo($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
-      {{name2}}
-    </ion-item>
+
+<ion-item>
+  <ion-checkbox [(ngModel)]="Answer.name2" (ionChange)="checkedTwo($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
+  {{name2}}
+</ion-item>
+  
+     
 
     <ion-item>
       <ion-checkbox [(ngModel)]="Answer.name3" (ionChange)="checkedThree($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
       {{name3}}
     </ion-item>
-
+      
+    
+      
     <ion-item>
       <ion-checkbox [(ngModel)]="Answer.name4" (ionChange)="checkedFour($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
       {{name4}}
     </ion-item>
     <br>
     <div style="text-align: center;">
-      <ion-button>
+      <ion-button (click)="submit()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-button>
-    </div> -->
-
+      </div>
   </ion-card>
 
 </ion-content>

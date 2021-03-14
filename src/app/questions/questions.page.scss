@@ -1,33 +1,37 @@
 
-// .div-centered {
+.div-centered {
 
-//     transform: translateX(-50%) translateY(-50%);
-//     top: 48%;
-//     left: 50%;
-//     position:absolute;
-//     width: 100%;
-//     margin-left: 0%;
-//     margin-right: 0%;
-
-//     .div-centered-header {
-//         position: relative;
-//         top: 36%;
-//         font-size: 3.0em;
-//         width: 100%;
-//         font-weight: bold;
-//         color: red;
-//     }
-
-//     .div-centered-body {
-//         font-size: 1.0em;
-//         text-align: center;
-//         position: relative;
-//         top: 52%;
-//         width: 100%;
-//     }
-// }   
-.div-centered{
+    transform: translateX(-50%) translateY(-50%);
+    top: 48%;
+    left: 50%;
+    position:absolute;
+    width: 100%;
     margin-left: 0%;
     margin-right: 0%;
-    margin-top: 0%;
+
+    .div-centered-header {
+        position: relative;
+        top: 36%;
+        font-size: 3.0em;
+        width: 100%;
+        font-weight: bold;
+        color: red;
+    }
+
+    .div-centered-body {
+        font-size: 1.0em;
+        text-align: center;
+        position: relative;
+        top: 52%;
+        width: 100%;
+    }
+}   
+
+ion-content{
+    --background: url(../../assets/app-background.jpg) 0 0/100% 100% no-repeat;
+  }
+
+.font{
+    font-size: medium;
+    font-weight: bold;
 }

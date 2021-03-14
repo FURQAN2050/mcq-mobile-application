@@ -1,0 +1,16 @@
+ion-content {
+  --background: url('../../assets/app-background.jpg') no-repeat 100% 100%;
+}
+.align{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:White;
+  padding:5px;
+}
+.card{
+  padding: 5px;
+  height:500px;
+  overflow-y: scroll;
+}

@@ -1,46 +1,51 @@
-<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
-<ion-header>
+<!-- <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet"> -->
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title style="font-family: Audiowide">Sign In<br><p style="font-size: 16px; margin-top: 0px;">Sign In to continue</p></ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content color="primary">
-  <div id="autofit" style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: center;">
-  <ion-card style="width: 100%;">
-    <ion-card-header>
-      <ion-card-subtitle style="text-align: center;">Welcome</ion-card-subtitle>
-      <ion-card-title style="text-align: center;"><b>Please Login!</b></ion-card-title>
-    </ion-card-header>
-    
+<ion-content no-padding no-margin>
+  <div class="main-div">
+    <ion-card class="login-card">
+      
+      <ion-card-header>
+        <ion-card-subtitle class="align-center">Welcome</ion-card-subtitle>
+        <ion-card-title class="align-center"><b>Please Login!</b></ion-card-title>
+      </ion-card-header>
+
       <div>
-      <ion-thumbnail class="center" style="height: 70px;width: 70px;">
-        <img src="../../assets/loginPage.png" alt="">
-      </ion-thumbnail>
+        <ion-thumbnail class="thumbnail-center">
+          <img src="../../assets/loginPage.png" alt="">
+        </ion-thumbnail>
       </div>
+      
       <ion-item>
-        <ion-input placeholder="Email"></ion-input>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="user.email" type="email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="Password" placeholder="Password"></ion-input>
-      </ion-item> 
-      <div style="height: 100%; display: flex; align-items: center; justify-content: center; margin: 5px;">
-      <ion-button color="secondary" style="padding: 5px 5px;">
-        <ion-icon name="log-in-outline" style="padding-right: 5px;"></ion-icon>
-        Login
-      </ion-button>
-      <ion-button color="secondary" style="padding: 5px 5px;">
-        <ion-icon name="create-outline" style="padding-right: 5px;"></ion-icon>
-        Signup
-      </ion-button>
-      </div>
-    
-  </ion-card>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input [(ngModel)]="user.password" type="Password"></ion-input>
+      </ion-item>
+      
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="submit()">
+            <ion-icon name="log-in-outline"></ion-icon>
+            &nbsp; Login
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button routerLink="/signup">
+            <ion-icon name="create-outline"></ion-icon>
+            &nbsp; Signup
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+
   </div>
-  
+
 </ion-content>
-<ion-footer>
-  <ion-item >
-    <ion-label style="text-align: center; font-size: 14px; margin-top: 0%;">Don't have an account yet?<a><u>Signup</u></a></ion-label>
-  </ion-item>
-</ion-footer>

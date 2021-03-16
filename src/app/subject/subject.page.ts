@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SubjactApi } from '../shared/sdk';
 
 @Component({
   selector: 'app-subject',
@@ -9,22 +10,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SubjectPage implements OnInit {
   selectedClassId;
   selectedSubjectId;
+  subjects:any = []
 
-  constructor(private activatedRoute: ActivatedRoute,public router:Router) { }
+
+  constructor(private activatedRoute: ActivatedRoute,public router:Router,private subjectApi:SubjactApi) { }
 
   ngOnInit() {
-    
+    this.selectedClassId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getSubjects();
   }
 
-  subject(){
-    this.router.navigateByUrl('/chapter/'+this.selectedClassId)
-    this.selectedClassId = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(this.selectedClassId)
+  openChapterPage(){
+    console.log(this.selectedSubjectId)
+    let id=this.selectedSubjectId.id
+    this.router.navigateByUrl('/chapter/'+id)
+    console.log(id)
   }
-  subjects = [
-    { name: "Physics", id: "1" },
-    { name: "Chemistery", id: "2" },
-    { name: "English", id: "3" }
-  ]
+
+  getSubjects(){
+    let filter = {
+      where: { classId:this.selectedClassId }
+    }
+    this.subjectApi.find(filter).subscribe(res=>{
+      this.subjects=res
+      console.log(this.subjects)
+
+    })
+  }
 
 }

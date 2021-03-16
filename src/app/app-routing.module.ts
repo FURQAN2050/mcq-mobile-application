@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./subject/subject.module').then( m => m.SubjectPageModule)
   },
   {
-    path: 'chapter/:classid:subjectid',
+    path: 'chapter/:subjectid',
     loadChildren: () => import('./chapter/chapter.module').then( m => m.ChapterPageModule)
   },
   {

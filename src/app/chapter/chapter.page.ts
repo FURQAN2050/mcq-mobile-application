@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ChapterApi } from '../shared/sdk';
 
 @Component({
   selector: 'app-chapter',
@@ -9,30 +10,30 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ChapterPage implements OnInit {
   selectedClassId
   selectedSubjectId
+  chapters=[]
 
-  constructor(private activatedRoute: ActivatedRoute,public router:Router) { }
+
+  constructor(private activatedRoute: ActivatedRoute,public router:Router,private chapterApi:ChapterApi) { }
 
   ngOnInit() {
-    this.selectedClassId = this.activatedRoute.snapshot.paramMap.get('classid');
-    console.log(this.selectedClassId)
     this.selectedSubjectId = this.activatedRoute.snapshot.paramMap.get('subjectid');
     console.log(this.selectedSubjectId)
+    this.getChapters();
   }
   question(){
     this.router.navigateByUrl('/questions');
+  }
+
+  getChapters(){
+    let filter = {
+      where: { subjactId:this.selectedSubjectId }
+    }
+    this.chapterApi.find(filter).subscribe(res=>{
+      this.chapters=res
+      console.log(this.chapters)
+    })
 
   }
 
-  chapters=[
-    { name: "Chapter 1", chapterName: "Physical World" },
-    { name: "Chapter 2", chapterName: "Units and Measurement" },
-    { name: "Chapter 3", chapterName: "Motion in a Straight Line" },
-    { name: "Chapter 4", chapterName: "Motion in a Plane" },
-    { name: "Chapter 5", chapterName: "Law of Motion" },
-    { name: "Chapter 6", chapterName: "Work, Energy, and Power" },
-    { name: "Chapter 7", chapterName: "Systems of Power and Rotational Motion" },
-    { name: "Chapter 8", chapterName: "Gravitation" },
-
-  ]
 
 }

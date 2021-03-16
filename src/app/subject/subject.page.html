@@ -2,8 +2,8 @@
   <div class="align">
     <ion-card>
 
-      <ion-select style="color: black;" (ionChange)="subject()"placeholder="Select Subject" >
-        <ion-select-option *ngFor="let subject of subjects"value="f">{{subject.name}}</ion-select-option>
+      <ion-select style="color: black;" [(ngModel)]="selectedSubjectId" (ionChange)="openChapterPage()"placeholder="Select Subject" >
+        <ion-select-option *ngFor="let subject of subjects" [value]="subject">{{subject.name}}</ion-select-option>
       </ion-select>
     </ion-card>
     

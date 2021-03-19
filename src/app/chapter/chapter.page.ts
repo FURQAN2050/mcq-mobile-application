@@ -10,6 +10,7 @@ import { ChapterApi } from '../shared/sdk';
 export class ChapterPage implements OnInit {
   selectedClassId
   selectedSubjectId
+  selectedChapter:any
   chapters=[]
 
 
@@ -20,9 +21,6 @@ export class ChapterPage implements OnInit {
     console.log(this.selectedSubjectId)
     this.getChapters();
   }
-  question(){
-    this.router.navigateByUrl('/questions');
-  }
 
   getChapters(){
     let filter = {
@@ -32,6 +30,14 @@ export class ChapterPage implements OnInit {
       this.chapters=res
       console.log(this.chapters)
     })
+  }
+  openChapterPage(chap){
+    console.log(chap);
+    let chapId=chap.id;
+    console.log(chapId)
+    this.router.navigateByUrl('/questions/'+chapId);
+
+    console.log(chap)
 
   }
 

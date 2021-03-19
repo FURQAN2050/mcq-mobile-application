@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'class',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./chapter/chapter.module').then( m => m.ChapterPageModule)
   },
   {
-    path: 'questions',
+    path: 'questions/:chapterid',
     loadChildren: () => import('./questions/questions.module').then( m => m.QuestionsPageModule)
   },
   {

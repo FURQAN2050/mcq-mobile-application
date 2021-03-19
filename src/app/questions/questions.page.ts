@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { McqApi } from '../shared/sdk';
 import { ToastService } from '../toast.service';
 
 @Component({
@@ -7,18 +9,37 @@ import { ToastService } from '../toast.service';
   styleUrls: ['./questions.page.scss'],
 })
 export class QuestionsPage implements OnInit {
-  constructor( public toast:ToastService) { }
+  selectedChapterId
+  mcqs:any=[];
+  currentMcq:any={};
+  crrentMcqIndex=0;
+  Answer:any=[]
+  selectedsubjectId
+
+
+
+
+  constructor( public router:Router, public toast:ToastService,private activatedRoute: ActivatedRoute,private mcqApi:McqApi) { }
   ngOnInit() {
+    this.selectedChapterId = this.activatedRoute.snapshot.paramMap.get('chapterid');
+    // this.selectedsubjectId=  this.activatedRoute.snapshot.paramMap.get('subjectid')
+    console.log(this.selectedChapterId)
+    this.getMcqs()
 
   }
-  Answer:any=[]
-  isChecked:any;
-  question = "The University of Waterloo does NOT have a building of this name?";
 
-  name1 = "B.C. Matthews Hall";
-  name2 = "Carl A. Pollock Hall";
-  name3 = "I.L. Neilson Hall";
-  name4 = "Douglas Wright Engineering";
+  getMcqs(){
+    this.mcqApi.find().subscribe(res=>{
+      console.log(res)
+      this.mcqs=res;
+      this.currentMcq=this.mcqs[this.crrentMcqIndex];
+
+    })
+  }
+
+
+
+  
   // choices:any=[
   //   {name:"B.C. Matthews Hall"},
   //   {name:"Carl A. Pollock Hall"},
@@ -75,7 +96,19 @@ export class QuestionsPage implements OnInit {
 
   submit(){
 
+    //add the logic to check the correct ans
+
     this.toast.simpleToast("Successfully Submit");
+    this.crrentMcqIndex++;
+    if(this.crrentMcqIndex==this.mcqs.length){
+      alert("All MCQS Done");
+      this.router.navigateByUrl('/chapter/'+this.selectedsubjectId);
+    }
+    this.currentMcq=this.mcqs[this.crrentMcqIndex];
+    this.Answer.name1=false
+    this.Answer.name2=false
+    this.Answer.name3=false
+    this.Answer.name4=false
 
 
   }

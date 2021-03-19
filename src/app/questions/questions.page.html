@@ -6,7 +6,7 @@
 
     </ion-card-header>
     <ion-item class="font">
-      {{question}}
+      {{currentMcq.question}}
     </ion-item>
      
     <!-- <div *ngFor="let choice of choices">
@@ -20,7 +20,7 @@
     <!-- <div class="font"> -->
     <ion-item>
       <ion-checkbox [(ngModel)]="Answer.name1" (ionChange)="checkedOne($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
-      {{name1}}
+      {{currentMcq.opt1}}
     </ion-item>
      
     <!-- </div> -->
@@ -29,21 +29,21 @@
 
 <ion-item>
   <ion-checkbox [(ngModel)]="Answer.name2" (ionChange)="checkedTwo($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
-  {{name2}}
+  {{currentMcq.opt2}}
 </ion-item>
   
      
 
     <ion-item>
       <ion-checkbox [(ngModel)]="Answer.name3" (ionChange)="checkedThree($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
-      {{name3}}
+      {{currentMcq.opt3}}
     </ion-item>
       
     
       
     <ion-item>
       <ion-checkbox [(ngModel)]="Answer.name4" (ionChange)="checkedFour($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
-      {{name4}}
+      {{currentMcq.opt4}}
     </ion-item>
     <br>
     <div style="text-align: center;">

@@ -9,9 +9,9 @@ import { AccountApi, LoopBackAuth } from '../shared/sdk';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  email:any;
-  password:any;
-  constructor(public router:Router,private accountApi:AccountApi,private loginAuth:LoginAuthenticationService,public auth:LoopBackAuth) { }
+  email: any;
+  password: any;
+  constructor(public router: Router, private accountApi: AccountApi, private loginAuth: LoginAuthenticationService, public auth: LoopBackAuth) { }
 
   ngOnInit() {
   }
@@ -22,33 +22,33 @@ export class LoginPage implements OnInit {
         this.auth.save();
         let user: any = this.auth.getCurrentUserData();
         console.log(user.id)
-        
+
         // let filter={
         //   where:{id:user.id}
         // }
-       
-        this.accountApi.findById(user.id).subscribe((accountProfile:any)=>{
+
+        this.accountApi.findById(user.id).subscribe((accountProfile: any) => {
           console.log(accountProfile);
-          
-        if(accountProfile!=null){
-          console.log(user)
-          this.auth.setUser(user);
-          this.loginAuth.userAuthenticated(user);
-          this.router.navigateByUrl('/class')
-        }
+
+          if (accountProfile != null) {
+            console.log(user)
+            this.auth.setUser(user);
+            this.loginAuth.userAuthenticated(user);
+            this.router.navigateByUrl('/class')
+          }
 
         })
-      
-        
-        
-      },err=>{
+
+
+
+      }, err => {
         alert("Email or password is incorrect");
       })
     }
     else {
       alert('Please fill all fields')
     }
-  
+
 
   }
 

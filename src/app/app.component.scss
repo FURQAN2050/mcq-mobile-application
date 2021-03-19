@@ -4,6 +4,11 @@ ion-menu ion-content {
 .side-menu-header{
 font-family: Audiowide;
 }
+.guestcustomer {
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 ion-menu.md ion-content {
   --padding-start: 8px;

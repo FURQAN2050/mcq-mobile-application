@@ -2,19 +2,34 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
-        <ion-list id="inbox-list">
+        <ion-list>
           <ion-list-header class="side-menu-header">APPTITRON</ion-list-header>
           <ion-note class="side-menu-header">Your Exam Partner</ion-note>
+        </ion-list>
+        <div>
+          <div class="guestcustomer" *ngIf="currentUser">
+            <ion-thumbnail>
+              <img src="../assets/user.png">
+            </ion-thumbnail>
+          </div>
+          <br>
+          <div class="guestcustomer" *ngIf="currentUser">
+            {{currentUser.username | uppercase}}
+          </div>
+        </div>
+
+
+        <ion-list id="inbox-list">
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon color="primary" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
               <ion-label>{{p.title}}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-<!-- 
-        <ion-list id="labels-list">
+        <!-- <ion-list id="labels-list">
           <ion-list-header>Labels</ion-list-header>
 
           <ion-item  lines="none">
@@ -23,6 +38,27 @@
           </ion-item>
         </ion-list> -->
       </ion-content>
+      <ion-footer *ngIf="currentUser!=null">
+        <ion-toolbar>
+          <ion-menu-toggle auto-hide="false" *ngIf="currentUser!=null">
+            <ion-item (click)="logout()" routerDirection="root" lines="none" detail="false">
+              <ion-icon slot="start" color="primary" name="log-in"></ion-icon>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+              <ion-label>Logout</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-toolbar>
+      </ion-footer>
+      <ion-footer>
+        <ion-toolbar>
+          <ion-item>
+
+            <ion-label>
+              Copyright &copy; MF
+            </ion-label>
+          </ion-item>
+        </ion-toolbar>
+      </ion-footer>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>

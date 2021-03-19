@@ -6,14 +6,14 @@
           <ion-list-header class="side-menu-header">APPTITRON</ion-list-header>
           <ion-note class="side-menu-header">Your Exam Partner</ion-note>
         </ion-list>
-        <div>
-          <div class="guestcustomer" *ngIf="currentUser">
+        <div class="guestcustomer" *ngIf="currentUser">
+          <div>
             <ion-thumbnail>
               <img src="../assets/user.png">
             </ion-thumbnail>
           </div>
           <br>
-          <div class="guestcustomer" *ngIf="currentUser">
+          <div class="guestcustomer">
             {{currentUser.username | uppercase}}
           </div>
         </div>

@@ -1,14 +1,14 @@
-
 <ion-content padding margin>
-  <ion-card class="div-centered">
+  <ion-card *ngIf="mcqs.length>0" class="div-centered">
     <ion-card-header>
-    <ion-card-subtitle color="primary" style="font-weight: bold;text-align: center;">Choose The Correct Answer</ion-card-subtitle>
+      <ion-card-subtitle color="primary" style="font-weight: bold;text-align: center;">Choose The Correct Answer
+      </ion-card-subtitle>
 
     </ion-card-header>
     <ion-item class="font">
       {{currentMcq.question}}
     </ion-item>
-     
+
     <!-- <div *ngFor="let choice of choices">
       <ion-checkbox (ionChange)="confirm($event)" [(ngModel)]="this.Answer" style="margin-right: 5px;" color="primary"></ion-checkbox>
       {{choice.name}}
@@ -19,30 +19,34 @@
 
     <!-- <div class="font"> -->
     <ion-item>
-      <ion-checkbox [(ngModel)]="Answer.name1" (ionChange)="checkedOne($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="Answer.name1" (ionChange)="checkedOne($event)" style="margin-right: 5px;"
+        color="primary"></ion-checkbox>
       {{currentMcq.opt1}}
     </ion-item>
-     
+
     <!-- </div> -->
-      
 
 
-<ion-item>
-  <ion-checkbox [(ngModel)]="Answer.name2" (ionChange)="checkedTwo($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
-  {{currentMcq.opt2}}
-</ion-item>
-  
-     
 
     <ion-item>
-      <ion-checkbox [(ngModel)]="Answer.name3" (ionChange)="checkedThree($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="Answer.name2" (ionChange)="checkedTwo($event)" style="margin-right: 5px;"
+        color="primary"></ion-checkbox>
+      {{currentMcq.opt2}}
+    </ion-item>
+
+
+
+    <ion-item>
+      <ion-checkbox [(ngModel)]="Answer.name3" (ionChange)="checkedThree($event)" style="margin-right: 5px;"
+        color="primary"></ion-checkbox>
       {{currentMcq.opt3}}
     </ion-item>
-      
-    
-      
+
+
+
     <ion-item>
-      <ion-checkbox [(ngModel)]="Answer.name4" (ionChange)="checkedFour($event)" style="margin-right: 5px;" color="primary"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="Answer.name4" (ionChange)="checkedFour($event)" style="margin-right: 5px;"
+        color="primary"></ion-checkbox>
       {{currentMcq.opt4}}
     </ion-item>
     <br>
@@ -50,7 +54,7 @@
       <ion-button (click)="submit()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-button>
-      </div>
+    </div>
   </ion-card>
 
 </ion-content>

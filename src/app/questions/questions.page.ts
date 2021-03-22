@@ -37,30 +37,6 @@ export class QuestionsPage implements OnInit {
     })
   }
 
-
-
-  
-  // choices:any=[
-  //   {name:"B.C. Matthews Hall"},
-  //   {name:"Carl A. Pollock Hall"},
-  //   {name:"I.L. Neilson Hall"},
-  //   {name:"Douglas Wright Engineering"}
-
-  // ];
-  // confirm(e){
-
-  //   if(e.detail.value=this.Answer[0]){
-  //     this.Answer=false;
-
-  //   }
-
-  // }
-
-
-
-
-
-
   checkedOne(e) {
     console.log(e);
     if (e.detail.checked) {
@@ -94,23 +70,38 @@ export class QuestionsPage implements OnInit {
     }
   }
 
-  submit(){
+  submit() {
 
     //add the logic to check the correct ans
-
-    this.toast.simpleToast("Successfully Submit");
-    this.crrentMcqIndex++;
-    if(this.crrentMcqIndex==this.mcqs.length){
-      alert("All MCQS Done");
-      this.router.navigateByUrl('/chapter/'+this.selectedsubjectId);
+    let SelectedAnswer = {};
+    if (this.Answer.name1 == true) {
+      SelectedAnswer = this.currentMcq.opt1;
     }
-    this.currentMcq=this.mcqs[this.crrentMcqIndex];
-    this.Answer.name1=false
-    this.Answer.name2=false
-    this.Answer.name3=false
-    this.Answer.name4=false
+    if (this.Answer.name2 == true) {
+      SelectedAnswer = this.currentMcq.opt2;
+    }
+    if (this.Answer.name3 == true) {
+      SelectedAnswer = this.currentMcq.opt3;
+    }
+    if (this.Answer.name4 == true) {
+      SelectedAnswer = this.currentMcq.opt4;
+    }
 
+    if (SelectedAnswer == this.currentMcq.ans) {
+      this.toast.simpleToast("Correct Answer");
+    }
 
+    this.crrentMcqIndex++;
+
+    if (this.crrentMcqIndex == this.mcqs.length) {
+      alert("All Mcq's Done");
+      // this.router.navigateByUrl('/chapter/'+this.selectedsubjectId);
+    }
+    this.currentMcq = this.mcqs[this.crrentMcqIndex];
+    this.Answer.name1 = false
+    this.Answer.name2 = false
+    this.Answer.name3 = false
+    this.Answer.name4 = false
   }
 
 

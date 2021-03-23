@@ -1,21 +1,10 @@
 <ion-content>
   <div class="align">
-
-    <ion-card>
-      <ion-select style="color:black;" (ionChange)="openSubjectPage() " [(ngModel)]="selectedClass" placeholder="Select Class" >
+    <ion-card class="full-width">
+      <ion-select style="color:black;" (ionChange)="openSubjectPage() " [(ngModel)]="selectedClass"
+        placeholder="Select Class">
         <ion-select-option *ngFor="let class of classes" [value]="class">{{class.name}}</ion-select-option>
       </ion-select>
     </ion-card>
-   
   </div>
-
-
-
-
-
-
-
-
-
-
 </ion-content>

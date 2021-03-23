@@ -16,15 +16,22 @@ export class ClassPage implements OnInit {
     public router: Router,
     private classApi: ClassApi,
     private supportingApis: ApiSupportingServicesService
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
+  }
+  ionViewWillEnter(){
+    this.classes=[];
+    this.selectedClass=null;
     this.getClasses();
   }
   openSubjectPage() {
-    console.log(this.selectedClass)
-    let selectedClassId=this.selectedClass.id;
-    this.router.navigateByUrl('/subject/' + selectedClassId);
+    if ((this.classes.length > 0) && this.selectedClass!=null){
+      console.log(this.selectedClass)
+      let selectedClassId=this.selectedClass.id;
+      this.router.navigateByUrl('/subject/' + selectedClassId);
+    }
   }
   getClasses() {
     this.supportingApis.getClasses().subscribe(res=>{
@@ -32,9 +39,5 @@ export class ClassPage implements OnInit {
       console.log(res)
       console.log(this.selectedClass)
     })
-    // this.classApi.find().subscribe(res=>{
-    //   this.classes=res;
-    //   console.log(this.classes)
-    // })
   }
 }

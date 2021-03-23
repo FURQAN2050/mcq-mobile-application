@@ -23,11 +23,20 @@ export class QuestionsPage implements OnInit {
 
   constructor(public router: Router, public toast: ToastService, private activatedRoute: ActivatedRoute, private mcqApi: McqApi) { }
   ngOnInit() {
+
     this.selectedChapterId = this.activatedRoute.snapshot.paramMap.get('chapterid');
-    // this.selectedsubjectId=  this.activatedRoute.snapshot.paramMap.get('subjectid')
     console.log(this.selectedChapterId)
     this.getMcqs()
-
+  }
+  ionViewWillEnter(){
+    console.log("Ion view will enter called");
+    this.selectedChapterId=null;
+    this.mcqs= [];
+    this.currentMcq = {};
+    this.crrentMcqIndex = 0;
+    this.Answer= []
+    this.selectedsubjectId;
+    this.correctAnswerCount = 0;
   }
 
   getMcqs() {
@@ -88,16 +97,24 @@ export class QuestionsPage implements OnInit {
       SelectedAnswer = this.currentMcq.opt4;
     }
 
+    if(Object.keys(SelectedAnswer).length === 0 && SelectedAnswer.constructor === Object){
+      alert("Please select Any option");
+      return;
+    }
+
     if (SelectedAnswer == this.currentMcq.ans) {
       this.toast.simpleToast("Correct");
       this.correctAnswerCount++;
+    }
+    else {
+      this.toast.simpleToast("Wrong Answer");
     }
 
     this.crrentMcqIndex++;
 
     if (this.crrentMcqIndex == this.mcqs.length) {
-       this.toast.simpleToast(`Your Result Score ${this.correctAnswerCount} out of ${this.mcqs.length}`);
-      // this.router.navigateByUrl('/chapter/'+this.selectedsubjectId);
+      this.toast.simpleToast(`Your Result Score ${this.correctAnswerCount} out of ${this.mcqs.length}`);
+      this.router.navigateByUrl("/class");
     }
     this.currentMcq = this.mcqs[this.crrentMcqIndex];
     this.Answer.name1 = false

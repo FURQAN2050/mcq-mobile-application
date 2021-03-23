@@ -10,16 +10,18 @@ import { ToastService } from '../toast.service';
 })
 export class QuestionsPage implements OnInit {
   selectedChapterId
-  mcqs:any=[];
-  currentMcq:any={};
-  crrentMcqIndex=0;
-  Answer:any=[]
-  selectedsubjectId
+  mcqs: any = [];
+  currentMcq: any = {};
+  crrentMcqIndex = 0;
+  Answer: any = []
+  selectedsubjectId;
+
+  correctAnswerCount = 0;
 
 
 
 
-  constructor( public router:Router, public toast:ToastService,private activatedRoute: ActivatedRoute,private mcqApi:McqApi) { }
+  constructor(public router: Router, public toast: ToastService, private activatedRoute: ActivatedRoute, private mcqApi: McqApi) { }
   ngOnInit() {
     this.selectedChapterId = this.activatedRoute.snapshot.paramMap.get('chapterid');
     // this.selectedsubjectId=  this.activatedRoute.snapshot.paramMap.get('subjectid')
@@ -28,12 +30,11 @@ export class QuestionsPage implements OnInit {
 
   }
 
-  getMcqs(){
-    this.mcqApi.find().subscribe(res=>{
+  getMcqs() {
+    this.mcqApi.find().subscribe(res => {
       console.log(res)
-      this.mcqs=res;
-      this.currentMcq=this.mcqs[this.crrentMcqIndex];
-
+      this.mcqs = res;
+      this.currentMcq = this.mcqs[this.crrentMcqIndex];
     })
   }
 
@@ -88,13 +89,14 @@ export class QuestionsPage implements OnInit {
     }
 
     if (SelectedAnswer == this.currentMcq.ans) {
-      this.toast.simpleToast("Correct Answer");
+      this.toast.simpleToast("Correct");
+      this.correctAnswerCount++;
     }
 
     this.crrentMcqIndex++;
 
     if (this.crrentMcqIndex == this.mcqs.length) {
-      alert("All Mcq's Done");
+       this.toast.simpleToast(`Your Result Score ${this.correctAnswerCount} out of ${this.mcqs.length}`);
       // this.router.navigateByUrl('/chapter/'+this.selectedsubjectId);
     }
     this.currentMcq = this.mcqs[this.crrentMcqIndex];
@@ -103,7 +105,6 @@ export class QuestionsPage implements OnInit {
     this.Answer.name3 = false
     this.Answer.name4 = false
   }
-
 
 
 }

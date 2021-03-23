@@ -1,3 +1,9 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content padding margin>
   <ion-card *ngIf="mcqs.length>0" class="div-centered">
     <ion-card-header>
@@ -9,22 +15,11 @@
       {{currentMcq.question}}
     </ion-item>
 
-    <!-- <div *ngFor="let choice of choices">
-      <ion-checkbox (ionChange)="confirm($event)" [(ngModel)]="this.Answer" style="margin-right: 5px;" color="primary"></ion-checkbox>
-      {{choice.name}}
-    </div>
-    <ion-button >
-      <ion-icon name="arrow-forward-outline"></ion-icon>
-    </ion-button> -->
-
-    <!-- <div class="font"> -->
     <ion-item>
       <ion-checkbox [(ngModel)]="Answer.name1" (ionChange)="checkedOne($event)" style="margin-right: 5px;"
         color="primary"></ion-checkbox>
       {{currentMcq.opt1}}
     </ion-item>
-
-    <!-- </div> -->
 
 
 
@@ -42,8 +37,6 @@
       {{currentMcq.opt3}}
     </ion-item>
 
-
-
     <ion-item>
       <ion-checkbox [(ngModel)]="Answer.name4" (ionChange)="checkedFour($event)" style="margin-right: 5px;"
         color="primary"></ion-checkbox>
@@ -58,3 +51,9 @@
   </ion-card>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar style="text-align:center">
+    <ion-title>{{crrentMcqIndex+1}}/{{mcqs.length}}</ion-title>
+  </ion-toolbar>
+</ion-footer>

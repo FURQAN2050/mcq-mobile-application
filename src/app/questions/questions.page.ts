@@ -40,7 +40,8 @@ export class QuestionsPage implements OnInit {
   }
 
   getMcqs() {
-    this.mcqApi.find().subscribe(res => {
+    let filter={where:{chapterId:this.selectedChapterId}}
+    this.mcqApi.find(filter).subscribe(res => {
       console.log(res)
       this.mcqs = res;
       this.currentMcq = this.mcqs[this.crrentMcqIndex];

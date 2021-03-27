@@ -1,16 +1,15 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title></ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content padding margin>
+<ion-content padding margin style="color:blue">
   <ion-card *ngIf="mcqs.length>0" class="div-centered">
-    <ion-card-header>
-      <ion-card-subtitle color="primary" style="font-weight: bold;text-align: center;">Choose The Correct Answer
-      </ion-card-subtitle>
-
+    <ion-card-header >
+      <b>Questions {{crrentMcqIndex+1}} of {{mcqs.length}} </b>
     </ion-card-header>
+
     <ion-item class="font">
       {{currentMcq.question}}
     </ion-item>
@@ -43,9 +42,9 @@
       {{currentMcq.opt4}}
     </ion-item>
     <br>
-    <div style="text-align: center;">
-      <ion-button (click)="submit()">
-        <ion-icon name="arrow-forward-outline"></ion-icon>
+    <div style="text-align: right;">
+      <ion-button (click)="submit()" fill="clear">
+        <b>Next</b>
       </ion-button>
     </div>
   </ion-card>
@@ -54,8 +53,8 @@
   </ion-card>
 </ion-content>
 
-<ion-footer>
+<!-- <ion-footer>
   <ion-toolbar style="text-align:center">
     <ion-title>{{crrentMcqIndex+1}}/{{mcqs.length}}</ion-title>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

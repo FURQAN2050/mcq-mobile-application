@@ -33,6 +33,7 @@ export class QuestionsPage implements OnInit {
     this.selectedChapterId = this.activatedRoute.snapshot.paramMap.get('chapterid');
     console.log(this.selectedChapterId)
     this.getMcqs()
+    this.getLoggedInUser();
   }
   ionViewWillEnter(){
     console.log("Ion view will enter called");
@@ -154,7 +155,7 @@ export class QuestionsPage implements OnInit {
       totalMcqs:this.mcqs.length,
       correctAnswers: this.correctAnswerCount,
       wrongAnswers:parseInt(this.mcqs.length) - this.correctAnswerCount,
-      student: this.currentUser.name || "Temporaray User",
+      student: this.currentUser.username || "Temporaray User",
       chapter: this.mcqs[0].chapter.name || "",
       percentage: ((parseFloat(this.correctAnswerCount)/parseFloat(this.mcqs.length))*100),
 

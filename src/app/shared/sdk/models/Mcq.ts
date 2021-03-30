@@ -1,4 +1,7 @@
 /* tslint:disable */
+import {
+  Chapter
+} from '../index';
 
 declare var Object: any;
 export interface McqInterface {
@@ -10,6 +13,7 @@ export interface McqInterface {
   "ans"?: string;
   "id"?: number;
   "chapterId"?: number;
+  chapter?: Chapter;
 }
 
 export class Mcq implements McqInterface {
@@ -21,6 +25,7 @@ export class Mcq implements McqInterface {
   "ans": string;
   "id": number;
   "chapterId": number;
+  chapter: Chapter;
   constructor(data?: McqInterface) {
     Object.assign(this, data);
   }
@@ -88,6 +93,14 @@ export class Mcq implements McqInterface {
         },
       },
       relations: {
+        chapter: {
+          name: 'chapter',
+          type: 'Chapter',
+          model: 'Chapter',
+          relationType: 'belongsTo',
+                  keyFrom: 'chapterId',
+          keyTo: 'id'
+        },
       }
     }
   }

@@ -41,6 +41,10 @@ const routes: Routes = [
   },  {
     path: 'aboutus',
     loadChildren: () => import('./aboutus/aboutus.module').then( m => m.AboutusPageModule)
+  },
+  {
+    path: 'mcq-result-modal',
+    loadChildren: () => import('./mcq-result-modal/mcq-result-modal.module').then( m => m.McqResultModalPageModule)
   }
 
 

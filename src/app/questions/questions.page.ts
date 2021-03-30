@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { McqApi } from '../shared/sdk';
+import { ModalController } from '@ionic/angular';
+import { McqResultModalPage } from '../mcq-result-modal/mcq-result-modal.page';
+import { LoginAuthenticationService } from '../services/loginAuthentication/login-authentication.service';
+import { LoopBackAuth, McqApi } from '../shared/sdk';
 import { ToastService } from '../toast.service';
 
 @Component({
@@ -16,12 +19,15 @@ export class QuestionsPage implements OnInit {
   Answer: any = []
   selectedsubjectId;
 
-  correctAnswerCount = 0;
+  correctAnswerCount:any = 0;
+  currentUser:any={};
 
 
 
 
-  constructor(public router: Router, public toast: ToastService, private activatedRoute: ActivatedRoute, private mcqApi: McqApi) { }
+  constructor(
+    public loginAuth: LoginAuthenticationService,
+    public modalController: ModalController,public router: Router, public toast: ToastService, private activatedRoute: ActivatedRoute, private mcqApi: McqApi) { }
   ngOnInit() {
 
     this.selectedChapterId = this.activatedRoute.snapshot.paramMap.get('chapterid');
@@ -38,9 +44,16 @@ export class QuestionsPage implements OnInit {
     this.selectedsubjectId;
     this.correctAnswerCount = 0;
   }
+  getLoggedInUser(){
+    this.loginAuth.getAuthObservable().subscribe(user => {
+      this.currentUser = user;
+      console.log(this.currentUser);
+    })
+  }
 
   getMcqs() {
-    let filter={where:{chapterId:this.selectedChapterId}}
+    let filter={where:{chapterId:this.selectedChapterId},
+    include:['chapter']}
     this.mcqApi.find(filter).subscribe(res => {
       console.log(res)
       this.mcqs = res;
@@ -115,13 +128,38 @@ export class QuestionsPage implements OnInit {
 
     if (this.crrentMcqIndex == this.mcqs.length) {
       this.toast.simpleToast(`Your Result Score ${this.correctAnswerCount} out of ${this.mcqs.length}`);
-      this.router.navigateByUrl("/class");
+      this.presentModal();
+      return;
     }
     this.currentMcq = this.mcqs[this.crrentMcqIndex];
     this.Answer.name1 = false
     this.Answer.name2 = false
     this.Answer.name3 = false
     this.Answer.name4 = false
+  }
+  async presentModal() {
+    let datatoPass=this.getdataToPass();
+    const modal = await this.modalController.create({
+      component: McqResultModalPage,
+      componentProps:datatoPass
+    });
+    modal.onDidDismiss()
+      .then((data) => {
+        this.router.navigateByUrl('/class');
+      });
+    return await modal.present();
+  }
+  getdataToPass(){
+    return {
+      totalMcqs:this.mcqs.length,
+      correctAnswers: this.correctAnswerCount,
+      wrongAnswers:parseInt(this.mcqs.length) - this.correctAnswerCount,
+      student: this.currentUser.name || "Temporaray User",
+      chapter: this.mcqs[0].chapter.name || "",
+      percentage: ((parseFloat(this.correctAnswerCount)/parseFloat(this.mcqs.length))*100),
+
+    }
+
   }
 
 

@@ -146,7 +146,7 @@ export class QuestionsPage implements OnInit {
     });
     modal.onDidDismiss()
       .then((data) => {
-        this.router.navigateByUrl('/class');
+        this.router.navigateByUrl('/main');
       });
     return await modal.present();
   }
@@ -155,7 +155,7 @@ export class QuestionsPage implements OnInit {
       totalMcqs:this.mcqs.length,
       correctAnswers: this.correctAnswerCount,
       wrongAnswers:parseInt(this.mcqs.length) - this.correctAnswerCount,
-      student: this.currentUser.username || "Temporaray User",
+      student: this.currentUser?.username || "Temporaray User",
       chapter: this.mcqs[0].chapter.name || "",
       percentage: ((parseFloat(this.correctAnswerCount)/parseFloat(this.mcqs.length))*100),
 

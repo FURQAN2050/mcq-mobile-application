@@ -3,23 +3,23 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list>
-          <ion-list-header class="side-menu-header">APPTITRON</ion-list-header>
+          <ion-list-header style="font-size: large;" class="side-menu-header">APPTITRON</ion-list-header>
           <ion-note class="side-menu-header">Your Exam Partner</ion-note>
-        </ion-list>
-        <div class="guestcustomer" *ngIf="currentUser">
-          <div>
+        <!-- </ion-list> -->
+        <div *ngIf="currentUser">
+          <div class="guestcustomer" >
             <ion-thumbnail>
               <img src="../assets/user.png">
             </ion-thumbnail>
           </div>
-          <br>
           <div class="guestcustomer">
             {{currentUser.username | uppercase}}
           </div>
         </div>
+        <br>
 
 
-        <ion-list id="inbox-list">
+        <!-- <ion-list id="inbox-li st"> -->
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">

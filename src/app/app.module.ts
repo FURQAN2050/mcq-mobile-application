@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { Screenshot } from '@ionic-native/screenshot/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +14,7 @@ import { McqResultModalPage } from './mcq-result-modal/mcq-result-modal.page';
   declarations: [AppComponent,McqResultModalPage],
   entryComponents: [McqResultModalPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,SDKBrowserModule.forRoot()],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },Screenshot],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Screenshot } from '@ionic-native/screenshot/ngx';
+import { ModalController } from '@ionic/angular';
+
+
 
 @Component({
   selector: 'app-mcq-result-modal',
@@ -14,10 +18,21 @@ export class McqResultModalPage implements OnInit {
   @Input() percentage: any;
 
 
-  constructor() { }
+  constructor( private screenshot: Screenshot,public modalController: ModalController) { }
 
   ngOnInit() {
     console.log(this.student)
+  }
+
+  takeSS(){
+    this.screenshot.save('jpg', 80, 'myscreenshot.jpg').then(onSuccess=>{
+      this.modalController.dismiss();
+
+    }, onError=>{
+      console.log(onError)
+      this.modalController.dismiss();
+
+    });
   }
 
 }

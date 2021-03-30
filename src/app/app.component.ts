@@ -50,7 +50,7 @@ export class AppComponent implements OnInit  {
     this.auth.clear();
     this.currentUser = null;
     this.loginAuth.userAuthenticated(null);
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/main');
   }
 
 

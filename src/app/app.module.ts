@@ -11,8 +11,8 @@ import { SDKBrowserModule } from './shared/sdk/index';
 import { McqResultModalPage } from './mcq-result-modal/mcq-result-modal.page';
 
 @NgModule({
-  declarations: [AppComponent], //,McqResultModalPage
-  entryComponents: [McqResultModalPage],
+  declarations: [AppComponent,McqResultModalPage], //,McqResultModalPage
+  entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,SDKBrowserModule.forRoot()],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },Screenshot],
   bootstrap: [AppComponent],

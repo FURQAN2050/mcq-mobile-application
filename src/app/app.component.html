@@ -1,10 +1,12 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu  contentId="main-content" type="overlay">
       <ion-content>
-        <ion-grid class="appLogo">
-          <img src="../assets/logo.png">
-        </ion-grid>
+        <ion-grid  class="appLogo">
+        <ion-menu-toggle>
+        <img menuClose [routerLink]="['/main']"  src="../assets/logo.png">
+      </ion-menu-toggle>
+      </ion-grid>
         <ion-list>
           <!-- <ion-list-header style="font-size: large;" class="side-menu-header">APPTITRON</ion-list-header> -->
           

@@ -15,6 +15,7 @@ import { SubjectPage } from './subject.page';
     IonicModule,
     SubjectPageRoutingModule
   ],
+  exports:[SubjectPage],
   declarations: [SubjectPage]
 })
 export class SubjectPageModule {}

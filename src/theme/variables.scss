@@ -7,6 +7,10 @@
   //custom
   --app-primary: #59c4d8; //#0a66c2     background: rgb(32, 32, 32);
   --app-secondary:#7ed0de;
+  --card-color1:#30445c;
+  --popover-color1:#ffffff;
+  --ion-menu-button:white;
+
   /** primary **/
   --ion-color-primary:#273c75 ;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -184,8 +188,8 @@
     --ion-color-step-950: #f2f2f2;
     --ion-border-color: #ffffff;
 
-    --ion-item-background: #0a66c2;
-    --ion-toolbar-background:--app-primary;
+    --ion-item-background: --app-secondary;
+    --ion-toolbar-background:var(--app-primary);
 
     --ion-card-background: #0a66c2;
   }
@@ -233,7 +237,7 @@
 
     --ion-item-background: --app-secondary;
 
-    --ion-toolbar-background: --app-primary;
+    --ion-toolbar-background: transparent;
 
     --ion-tab-bar-background: #0a66c2;
 

@@ -1,17 +1,22 @@
 <!--  -->
-<!-- <ion-header>
-  <ion-toolbar>
+<!-- <ion-header> -->
+  <!-- <ion-toolbar>
     <ion-title style="font-family: Audiowide">Sign In<br><p style="font-size: 16px; margin-top: 0px;">Sign In to continue</p></ion-title>
-  </ion-toolbar>
-</ion-header> -->
+  </ion-toolbar> -->
 
-<ion-content no-padding no-margin>
+<!-- </ion-header> -->
+
+<ion-content class="bg" >
+  <ion-grid  class="appLogo">
+    <img  [routerLink]="['/main']"  src="../assets/logo.png">
+  </ion-grid>
   <div class="main-div">
-    <ion-card class="login-card">
+ 
+    <ion-card  class="login-card">
       
-      <ion-card-header>
-        <ion-card-subtitle class="align-center">Welcome</ion-card-subtitle>
-        <ion-card-title class="align-center"><b>Please Login!</b></ion-card-title>
+      <ion-card-header class="cardHeader">
+        <ion-card-subtitle  class="align-center subTxt">Welcome</ion-card-subtitle>
+        <ion-card-title class="align-center mainTxt"><b>Please Login!</b></ion-card-title>
       </ion-card-header>
 
       <div>
@@ -19,33 +24,44 @@
           <img src="../../assets/loginPage.png" alt="">
         </ion-thumbnail>
       </div>
-      
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input [(ngModel)]="email" type="email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input [(ngModel)]="password" type="Password"></ion-input>
-      </ion-item>
-      
-      <ion-row>
+      <ion-row >
         <ion-col>
-          <ion-button (click)="submit()">
-            <ion-icon name="log-in-outline"></ion-icon>
-            &nbsp; Login
-          </ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button routerLink="/signup">
-            <ion-icon name="create-outline"></ion-icon>
-            &nbsp; Signup
-          </ion-button>
+          <ion-item class="inputBoxes" lines="none">
+            <ion-label class="lblMain">Email</ion-label>
+            <ion-input class="inputBox1" [(ngModel)]="email" type="email"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
 
-    </ion-card>
-
+      <ion-row >
+        <ion-col>
+          <ion-item class="inputBoxes" lines="none">
+        <ion-label class="lblMain" >Password</ion-label>
+        <ion-input class="inputBoxes" [(ngModel)]="password" type="Password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+ <br>
+ <br>
+        </ion-card>
+      
   </div>
-
+  <br>
+        <ion-row>
+          <ion-col>
+            <ion-button  mode="ios" class="btnSubmit" expand="block"  (click)="submit()">
+              <ion-icon name="log-in-outline"></ion-icon>
+              &nbsp; Login
+            </ion-button>
+          </ion-col>
+        </ion-row>
+  
+  <ion-row>
+    <ion-col>
+      <ion-button mode="ios" class="btnSignup" expand="block"  routerLink="/signup">
+        <ion-icon name="create-outline"></ion-icon>
+        &nbsp; Signup
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

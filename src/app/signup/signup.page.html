@@ -6,13 +6,16 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content >
+<ion-content  class="bg">
+  <ion-grid  class="appLogo">
+    <img  [routerLink]="['/main']"  src="../assets/logo.png">
+  </ion-grid>
   <div class="main-div">
     <ion-card class="login-card">
       
-      <ion-card-header>
-        <ion-card-subtitle class="align-center">Welcome</ion-card-subtitle>
-        <ion-card-title class="align-center"><b>Please Signup!</b></ion-card-title>
+      <ion-card-header class="cardHeader">
+        <ion-card-subtitle  class="align-center subTxt">Welcome</ion-card-subtitle>
+        <ion-card-title class="align-center mainTxt"><b>Please Register!</b></ion-card-title>
       </ion-card-header>
 
       <div>
@@ -21,35 +24,50 @@
         </ion-thumbnail>
       </div>
       
-      
-        <ion-item>
-          <ion-label position="floating">Name</ion-label>
-          <ion-input [(ngModel)]="user.name"></ion-input>
-        </ion-item> 
-        <ion-item>
-          <ion-label position="floating">Email</ion-label>
-          <ion-input [(ngModel)]="user.email" ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input [(ngModel)]=user.password type="Password" ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Confirm Password</ion-label>
-          <ion-input type="Password" ></ion-input>
-        </ion-item> 
-        
-        <ion-row>
-          <ion-col>
-            <ion-button (click)="submit()" expand="full">
-              <ion-icon name="create-outline"></ion-icon>
-              &nbsp; Signup
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      
+      <ion-row >
+        <ion-col>
+          <ion-item class="inputBoxes" lines="none">
+            <ion-label class="lblMain">Name</ion-label>
+             <ion-input class="inputBox1" [(ngModel)]="user.name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>
+          <ion-item class="inputBoxes" lines="none">
+            <ion-label class="lblMain">Email</ion-label>
+             <ion-input class="inputBox1" [(ngModel)]="user.email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>
+          <ion-item class="inputBoxes" lines="none">
+            <ion-label class="lblMain">Password</ion-label>
+             <ion-input class="inputBox1"  [(ngModel)]=user.password type="Password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>
+          <ion-item class="inputBoxes" lines="none">
+            <ion-label class="lblMain">Confirm Password</ion-label>
+             <ion-input class="inputBox1"  [(ngModel)]=user.confirmPassword type="Password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
     </ion-card>
   </div>    
+  <br>
+  <ion-row>
+    <ion-col>
+      <ion-button  mode="ios" class="btnSubmit" expand="block"  (click)="submit()">
+        <ion-icon name="log-in-outline"></ion-icon>
+        &nbsp; Signup
+      </ion-button>
+    </ion-col>
+  </ion-row>
+    
 </ion-content>
 <!-- <ion-footer>
   <ion-item >

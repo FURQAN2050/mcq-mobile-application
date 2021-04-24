@@ -1,8 +1,17 @@
 .align{
-    height: 100%;
+    margin-top: 10px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+}
+.selectClass{
+  color:white;
+  background-color: var(--card-color1);
+  height: 40px;
+ 
+}
+.item-highlight{
+  border-bottom: 1px solid #212e3f;
 }
 ion-content{
   // --background: url(../../assets/app-background.jpg) 0 0/100% 100% no-repeat;

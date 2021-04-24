@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastService } from '../services/controllers/toast.service';
 import { AccountApi } from '../shared/sdk';
-import { ToastService } from '../toast.service';
-
+ 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -24,7 +24,7 @@ export class SignupPage implements OnInit {
       password:this.user.password,
       email:this.user.email
     }
-    if(this.user.name && this.user.email && this.user.password){
+    if(this.user.name && this.user.email && this.user.password && (this.user.password == this.user.confirmPassword)){
       this.accountApi.create(account).subscribe(res=>{
         console.log(res)
       })
@@ -32,7 +32,9 @@ export class SignupPage implements OnInit {
       this.router.navigateByUrl('/login')
     }
     else{
-      alert("Please Enter All Fields")
+      // alert("Please Enter All Fields")
+      this.toastservice.simpleToast("Please Enter All Fields","danger")
+
     }
   }
 

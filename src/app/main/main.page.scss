@@ -2,17 +2,6 @@ ion-avatar{
   margin:0 auto;
 }
  
-
-.navbarBg{
-  background:var(--app-primary);
-  p{
-    text-align: center;
-    padding: 5px;
-  }
-}
-.menuBtn{
-  color: white;
-}
 .mainHeader{
   font-family: "Audiowide", sans-serif;
   font-size: 40px;
@@ -29,6 +18,17 @@ ion-avatar{
 ion-row{
   flex-wrap: nowrap;
 }
+.navbarBg{
+   height: 135px;
+.welcomeTxt{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p{
+    font-size: 13px;
+  }
+}
+  }
 .div-centered {
   top: 35%;
   display: flex;

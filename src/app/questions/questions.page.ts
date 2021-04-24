@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { McqResultModalPage } from '../mcq-result-modal/mcq-result-modal.page';
+import { ToastService } from '../services/controllers/toast.service';
 import { LoginAuthenticationService } from '../services/loginAuthentication/login-authentication.service';
 import { LoopBackAuth, McqApi } from '../shared/sdk';
-import { ToastService } from '../toast.service';
-
+ 
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.page.html',

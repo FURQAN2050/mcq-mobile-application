@@ -11,7 +11,7 @@ import { LoopBackAuth, LoopBackConfig } from './shared/sdk';
 })
 export class AppComponent implements OnInit  {
   public appPages = [
-    { title: ' Start Mcqs', url: 'class', icon: 'list' },
+    { title: 'Start Mcqs', url: 'class', icon: 'list' },
     { title: 'login', url: '/login', icon: 'log-in' },
     { title: 'Signup', url: '/signup', icon: 'create' },
   ];

@@ -29,10 +29,64 @@
 }
 ion-content{
   --ion-color-primary : #ffffff;
-  --background:var(--ion-color-primary);
+  --background:#ffffff;
 }
+.ion-page{
+  background-color: #ffffff;
+}
+.navbarBg{
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+  background: var(--app-primary);
+  height: 68px;
+  // height: 100px;
 
- 
+  p{
+    text-align: center;
+    // padding: 5px;
+    margin-top: 0px;  }
+}
+.alert-button.sc-ion-alert-md{
+  color: var(--card-color1);
+}
+.alert-button.sc-ion-alert-ios{
+  color: var(--card-color1);
+}
+.alert-wrapper.sc-ion-alert-md{
+  background:var(--app-primary);
+}
+.sc-ion-popover-md-h{
+  --background:var(--popover-color1);
+}
+.popover-content.sc-ion-popover-md{
+  right: 12px;
+}
+.alert-wrapper.sc-ion-alert-ios{
+  background:var(--app-primary);
+}
+.item.sc-ion-label-md-h, .item .sc-ion-label-md-h{
+  color: black;
+  
+}
+.loading-wrapper.sc-ion-loading-md, .loading-wrapper.sc-ion-loading-ios{
+  background: #212e3f;
+  color: white;
+  border-radius: 6px;  
+}
+.sc-ion-loading-md-h,.sc-ion-loading-ios-h {
+  --spinner-color: #ffffff;
+}
+.menuBtn{
+  color: white;
+}
+.appLogo{
+  display: flex;
+  justify-content: center;
+  img{
+    height: 120px;
+  }
+}
+//
 @font-face {
   font-family: 'AquireBold';
   font-style: normal;

@@ -1,8 +1,54 @@
-<ion-content>
-  <ion-card class="div-centered">
-    <ion-grid>
-      <ion-row  >
-        <ion-col size="6">
+<ion-header class="navbarBg">
+
+  <ion-toolbar >
+   
+    <ion-buttons slot="start">
+      <ion-menu-button class="menuBtn" menuToggle autoHide="false"></ion-menu-button>
+  
+    </ion-buttons>
+    <ion-title>
+      Dashboard
+    </ion-title>
+   
+     
+  </ion-toolbar>
+  
+  <p>
+    Welcome to the Quiz App. You will find most of the preparing material for your exams. Enjoy!
+  </p>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid class="shapesGrid">
+    <div class="pentagon margin"></div>
+    <div class="shape2 margin"></div>
+    <div class="shape1 margin"></div>
+  </ion-grid>
+  <!-- <ion-grid>
+    <ion-slides [options]="slideOptions">
+      <ion-slide>
+        <ion-row class="main-div" >
+          <ion-col class="categoryBg" size="12">
+            <ion-avatar >
+              <img    routerLink="/class"
+                src="../../assets/mcq.png" alt="">
+            </ion-avatar>
+              <br>
+            <ion-button routerLink="/search-medicine" expand="block" fill="clear">Start MCQs</ion-button>
+          </ion-col>
+   
+        </ion-row>
+      </ion-slide>
+    </ion-slides>
+  </ion-grid> -->
+ 
+  
+ 
+  
+  <!-- <ion-card class="div-centered"> -->
+    <ion-grid class="div-centered">
+      <ion-row class="main-div" >
+        <ion-col class="categoryBg borderRight borderBottom" size="6">
           <ion-avatar >
             <img    routerLink="/class"
               src="../../assets/mcq.png" alt="">
@@ -11,7 +57,7 @@
           <ion-button routerLink="/search-medicine" expand="block" fill="clear">Start MCQs</ion-button>
         </ion-col>
 
-         <ion-col size="6">
+         <ion-col class="categoryBg borderLeft borderBottom" size="6">
           <ion-avatar>
             <img routerLink="/login"
               src="../../assets/login2.png" alt="">
@@ -20,8 +66,8 @@
           <ion-button routerLink="/login" expand="block" fill="clear">Login</ion-button>
         </ion-col>
       </ion-row>
-      <ion-row  >
-        <ion-col size="6">
+      <ion-row class="main-div" >
+        <ion-col class="categoryBg borderRight borderTop" size="6">
           <ion-avatar >
             <img    routerLink="/signup"
               src="../../assets/contract.png" alt="">
@@ -30,7 +76,7 @@
           <ion-button routerLink="/signup" expand="block" fill="clear">Sign Up</ion-button>
         </ion-col>
 
-         <ion-col size="6">
+         <ion-col  class="categoryBg borderLeft borderTop" size="6">
           <ion-avatar>
             <img routerLink="/aboutus"
               src="../../assets/info.png" alt="">
@@ -40,8 +86,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-
-  </ion-card>
+   <!-- </ion-card> -->
 </ion-content>
 <ion-footer class="footer">
   <ion-note style="color:white;">

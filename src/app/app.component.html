@@ -2,8 +2,12 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
+        <ion-grid class="appLogo">
+          <img src="../assets/logo.png">
+        </ion-grid>
         <ion-list>
-          <ion-list-header style="font-size: large;" class="side-menu-header">APPTITRON</ion-list-header>
+          <!-- <ion-list-header style="font-size: large;" class="side-menu-header">APPTITRON</ion-list-header> -->
+          
           <ion-note class="side-menu-header">Your Exam Partner</ion-note>
         <!-- </ion-list> -->
         <div *ngIf="currentUser">
@@ -23,7 +27,7 @@
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon color="primary" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-icon color="app-primary" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
               <ion-label>{{p.title}}</ion-label>
             </ion-item>
@@ -42,18 +46,17 @@
         <ion-toolbar>
           <ion-menu-toggle auto-hide="false" *ngIf="currentUser!=null">
             <ion-item (click)="logout()" routerDirection="root" lines="none" detail="false">
-              <ion-icon slot="start" color="primary" name="log-in"></ion-icon>
+              <ion-icon slot="start" color="app-primary" name="log-in"></ion-icon>
               <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
               <ion-label>Logout</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-toolbar>
       </ion-footer>
-      <ion-footer>
+      <ion-footer >
         <ion-toolbar>
           <ion-item>
-
-            <ion-label>
+            <ion-label class="copyright">
               Copyright &copy; MF
             </ion-label>
           </ion-item>

@@ -29,3 +29,22 @@ ion-content{
       width: 100%;
   }
 }
+.chapTitle{
+  color: white;
+  // font-weight: bold;
+  font-size: 16px;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.subTitle{
+  margin: 0px;
+  margin-top: 5px;
+  font-size: 10px;
+  // color: #e4a842;
+  color: #8f8e8d;
+}
+.chapIcon{
+  max-height: 55px;
+}

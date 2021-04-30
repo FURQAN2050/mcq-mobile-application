@@ -1,33 +1,74 @@
-.div-centered {
-
-    transform: translateX(-50%) translateY(-50%);
-    top: 48%;
-    left: 50%;
-    position:absolute;
-    width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
-
-    .div-centered-header {
-        position: relative;
-        top: 36%;
-        font-size: 3.0em;
-        width: 100%;
-        font-weight: bold;
-        color: red;
-    }
-
-    .div-centered-body {
-        font-size: 1.0em;
-        text-align: center;
-        position: relative;
-        top: 52%;
-        width: 100%;
-    }
-}
-
+ 
 .marginButton{
     margin:auto;
     text-align: center;
     
+}
+.bg{
+    --background: var(--app-primary);
+    
+}
+.cardResult{
+    --background: var(--popover-color1);
+    border-radius: 12px;
+}
+.colorDark{
+    color: var( --card-color1);
+
+}
+.testScore{
+    font-size: 38px;
+    font-weight: bold;
+    text-align: center;
+    color: #fdc302;
+}
+.trophyBlock{
+    text-align: center;
+    .trophyIcon{
+        height: 84px;
+     }
+}
+
+.dismissBtn{
+    --background: transparent;
+    font-size: 28px;
+}
+.ssBtn{
+    --background: transparent;
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    font-size: 8px;
+    ion-icon{
+        margin-top: -2px;
+
+    }
+}
+ion-label{
+    font-size: 14px!important;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    color: var( --card-color1);
+
+}
+.wrongAnswersScore{
+    color: rgb(175, 37, 37);
+}
+.correctAnswersScore{
+    color: rgb(22, 177, 22);
+}
+.percentageScore{
+    color: #fdc302;
+}
+.quizTxt{
+    font-size: 13px;
+    font-weight: bold;
+    color: var( --card-color1);
+    text-align: center;
+}
+ion-item{
+    --min-height: 36px;
+}
+ion-icon{
+    font-size: 18px;
 }

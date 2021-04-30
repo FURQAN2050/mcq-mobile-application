@@ -6,14 +6,14 @@ import { ToastController } from '@ionic/angular';
 })
 export class ToastService {
 
-  constructor(public toastController: ToastController) {}
+  constructor(public toastController: ToastController) { }
 
-  async simpleToast(message,color?) {
+  async simpleToast(message, position) {
     const toast = await this.toastController.create({
-      message:message,
+      message: message,
       duration: 2000,
       animated: true,
-      color:color
+      position: position
     });
     toast.present();
   }

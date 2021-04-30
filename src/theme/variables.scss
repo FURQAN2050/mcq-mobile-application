@@ -191,7 +191,7 @@
     --ion-item-background: --app-secondary;
     --ion-toolbar-background:var(--app-primary);
 
-    --ion-card-background: #0a66c2;
+    --ion-card-background: var(--card-color1);
   }
 
   .ios ion-modal {
@@ -241,6 +241,6 @@
 
     --ion-tab-bar-background: #0a66c2;
 
-    --ion-card-background: #0a66c2;
+    --ion-card-background: var(--card-color1);
   }
 }

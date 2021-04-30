@@ -5,7 +5,7 @@ import { McqResultModalPage } from '../mcq-result-modal/mcq-result-modal.page';
 import { ToastService } from '../services/controllers/toast.service';
 import { LoginAuthenticationService } from '../services/loginAuthentication/login-authentication.service';
 import { LoopBackAuth, McqApi } from '../shared/sdk';
- 
+
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.page.html',
@@ -18,34 +18,29 @@ export class QuestionsPage implements OnInit {
   crrentMcqIndex = 0;
   Answer: any = []
   selectedsubjectId;
-
-  correctAnswerCount:any = 0;
-  currentUser:any={};
-
-
-
-
+  chapterName = "";
+  correctAnswerCount: any = 0;
+  currentUser: any = {};
   constructor(
     public loginAuth: LoginAuthenticationService,
-    public modalController: ModalController,public router: Router, public toast: ToastService, private activatedRoute: ActivatedRoute, private mcqApi: McqApi) { }
+    public modalController: ModalController, public router: Router, public toast: ToastService, private activatedRoute: ActivatedRoute, private mcqApi: McqApi) { }
   ngOnInit() {
-
     this.selectedChapterId = this.activatedRoute.snapshot.paramMap.get('chapterid');
     console.log(this.selectedChapterId)
     this.getMcqs()
     this.getLoggedInUser();
   }
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     console.log("Ion view will enter called");
-    this.selectedChapterId=null;
-    this.mcqs= [];
+    this.selectedChapterId = null;
+    this.mcqs = [];
     this.currentMcq = {};
     this.crrentMcqIndex = 0;
-    this.Answer= []
+    this.Answer = []
     this.selectedsubjectId;
     this.correctAnswerCount = 0;
   }
-  getLoggedInUser(){
+  getLoggedInUser() {
     this.loginAuth.getAuthObservable().subscribe(user => {
       this.currentUser = user;
       console.log(this.currentUser);
@@ -53,12 +48,15 @@ export class QuestionsPage implements OnInit {
   }
 
   getMcqs() {
-    let filter={where:{chapterId:this.selectedChapterId},
-    include:['chapter']}
+    let filter = {
+      where: { chapterId: this.selectedChapterId },
+      include: ['chapter']
+    }
     this.mcqApi.find(filter).subscribe(res => {
       console.log(res)
       this.mcqs = res;
       this.currentMcq = this.mcqs[this.crrentMcqIndex];
+      this.chapterName = this.mcqs[0]["chapter"]["name"];
     })
   }
 
@@ -112,23 +110,20 @@ export class QuestionsPage implements OnInit {
       SelectedAnswer = this.currentMcq.opt4;
     }
 
-    if(Object.keys(SelectedAnswer).length === 0 && SelectedAnswer.constructor === Object){
+    if (Object.keys(SelectedAnswer).length === 0 && SelectedAnswer.constructor === Object) {
       alert("Please select Any option");
       return;
     }
-
     if (SelectedAnswer == this.currentMcq.ans) {
-      this.toast.simpleToast("Correct");
+      this.toast.simpleToast("Correct", 'top');
       this.correctAnswerCount++;
     }
     else {
-      this.toast.simpleToast("Wrong Answer");
+      this.toast.simpleToast("Wrong Answer", 'top');
     }
-
     this.crrentMcqIndex++;
-
     if (this.crrentMcqIndex == this.mcqs.length) {
-      this.toast.simpleToast(`Your Result Score ${this.correctAnswerCount} out of ${this.mcqs.length}`);
+      this.toast.simpleToast(`Your Result Score ${this.correctAnswerCount} out of ${this.mcqs.length}`, "bottom");
       this.presentModal();
       return;
     }
@@ -139,10 +134,10 @@ export class QuestionsPage implements OnInit {
     this.Answer.name4 = false
   }
   async presentModal() {
-    let datatoPass=this.getdataToPass();
+    let datatoPass = this.getdataToPass();
     const modal = await this.modalController.create({
       component: McqResultModalPage,
-      componentProps:datatoPass
+      componentProps: datatoPass
     });
     modal.onDidDismiss()
       .then((data) => {
@@ -150,19 +145,18 @@ export class QuestionsPage implements OnInit {
       });
     return await modal.present();
   }
-  getdataToPass(){
+  getdataToPass() {
     return {
-      totalMcqs:this.mcqs.length,
+      totalMcqs: this.mcqs.length,
       correctAnswers: this.correctAnswerCount,
-      wrongAnswers:parseInt(this.mcqs.length) - this.correctAnswerCount,
+      wrongAnswers: parseInt(this.mcqs.length) - this.correctAnswerCount,
       student: this.currentUser?.username || "Temporaray User",
       chapter: this.mcqs[0].chapter.name || "",
-      percentage: ((parseFloat(this.correctAnswerCount)/parseFloat(this.mcqs.length))*100),
+      percentage: ((parseFloat(this.correctAnswerCount) / parseFloat(this.mcqs.length)) * 100),
 
     }
 
   }
-
 
 }
 

@@ -16,7 +16,8 @@ export class ClassPage {
   classes: any = [];
   selectedSubjectId;
   subjects: any = []
-
+  showClass = false;
+  showLoader = false;
   constructor(
     public router: Router,
     private classApi: ClassApi,
@@ -31,8 +32,16 @@ export class ClassPage {
     this.selectedClass = null;
     this.selectedClassId = null;
     this.getClasses();
+    this.showClass = false;
+    this.showLoader = false;
   }
-  openSubjectPage() {
+  openSubjectPage(classDetails) {
+    this.selectedClass = classDetails;
+    this.showClass = true;
+    this.showLoader = true;
+    setTimeout(() => {
+      this.showLoader = false;
+    }, 1200);
     if (this.classes.length > 0 && this.selectedClass != null) {
       console.log(this.selectedClass);
       this.selectedClassId = this.selectedClass.id;

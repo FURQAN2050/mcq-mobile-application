@@ -37,6 +37,9 @@ ion-row{
   flex-direction: column;
   position: relative;
 
+  ion-button{
+    font-family: AquireBold;
+  }
   .div-centered-header {
       position: relative;
       top: 36%;

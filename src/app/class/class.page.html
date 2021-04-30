@@ -1,38 +1,57 @@
-<ion-header    class="navbarBg ion-no-border">
+<ion-header class="navbarBg ion-no-border">
 
-  <ion-toolbar >
-   
+  <ion-toolbar>
+
     <ion-buttons slot="start">
       <ion-menu-button class="menuBtn" menuToggle autoHide="false"></ion-menu-button>
-  
+
     </ion-buttons>
     <ion-title>
       Start Quiz
     </ion-title>
-   
-     
+
+
   </ion-toolbar>
-  
-   
+
+
 </ion-header>
 <ion-content>
- <ion-grid>
-  <ion-card >
-    <ion-select class="selectClass" interface="popover" (ionChange)="openSubjectPage()" (click)="presentLoading()"  [(ngModel)]="selectedClass"
+  <ion-grid>
+    <ion-card (click)="openSubjectPage(class)" *ngFor="let class of classes">
+
+      <ion-row class="chapTitle">
+        <ion-col size="2.5">
+          <img class="chapIcon" src="../../assets/contract.png">
+        </ion-col>
+        <ion-col class="" size="9.5">
+          <ion-label class="chapTitle">
+            <!-- <ion-icon name="book-outline"></ion-icon> -->
+            {{class.name}}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+
+      <!-- <ion-select class="selectClass" interface="popover" (ionChange)="openSubjectPage()" (click)="presentLoading()"  [(ngModel)]="selectedClass"
       placeholder="Select Class">
       <ion-select-option *ngFor="let class of classes" [value]="class">{{class.name}}</ion-select-option>
-    </ion-select>
-  </ion-card>
- </ion-grid>
+    </ion-select> -->
+    </ion-card>
+  </ion-grid>
 
- <!-- <app-subject  [selectedClassId]="exportSelectedClass"></app-subject> -->
- <ion-grid>
-  <ion-card >
-    <ion-select class="selectClass"  interface="popover" [(ngModel)]="selectedSubjectId" (ionChange)="openChapterPage()"
-      placeholder="Select Subject">
-      <ion-select-option *ngFor="let subject of subjects" [value]="subject">{{subject.name}}</ion-select-option>
-    </ion-select>
-  </ion-card>
+  <!-- <app-subject  [selectedClassId]="exportSelectedClass"></app-subject> -->
+  <ion-grid *ngIf="showClass == true">
+    <div *ngIf="showLoader == true" class="spinnerDiv">
+      <ion-spinner class="loading"></ion-spinner>
+      <p>Loading...</p>
+    </div>
 
-</ion-grid>
+    <ion-card>
+      <ion-select class="selectClass" interface="popover" [(ngModel)]="selectedSubjectId"
+        (ionChange)="openChapterPage()" placeholder="Select Subject">
+        <ion-select-option *ngFor="let subject of subjects" [value]="subject">{{subject.name}}</ion-select-option>
+      </ion-select>
+    </ion-card>
+
+  </ion-grid>
 </ion-content>

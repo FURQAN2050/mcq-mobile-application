@@ -1,46 +1,60 @@
-<ion-content>
+<ion-content class="bg">
   <br>
   <br>
-  <h1 style="text-align: center;font-weight: bold;color: white;">Test Result</h1>
+  <ion-fab (click)="dismiss()" class="dismissBtn" vertical="top" horizontal="end" slot="fixed">
+    <ion-icon name="close-outline"></ion-icon>
+  </ion-fab>
+  <h1 style="text-align: center;font-weight: bold;color: white;">{{title}}</h1>
+  <h1 class="testScore">{{percentage | number : '1.2-2' }}% Score</h1>
   <div class="div-centered">
-    <ion-card>
+    <ion-card class="cardResult">
+      <ion-row class="trophyBlock">
+        <ion-col>
+          <img class="trophyIcon" src="../../assets/trophy.png">
+        </ion-col>
+      </ion-row>
       <ion-item>
-        <ion-label>
-          Student: <b>{{student | uppercase }} </b>
+        <ion-label class="ion-text-wrap quizTxt">
+          Quiz Successfully Completed! Your result details are below.
+        </ion-label>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label class="ion-text-wrap colorDark">
+          Student: <b>{{student | titlecase }} </b>
         </ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>
-          Chapter: {{chapter | uppercase}}
+        <ion-label class="ion-text-wrap colorDark">
+          Chapter: <b>{{chapter | titlecase}}</b>
         </ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>
+        <ion-label class="colorDark">
           Total MCQS: {{totalMcqs}}
         </ion-label>
       </ion-item>
-
       <ion-item>
-        <ion-label>
-          Correct Answers: {{correctAnswers}}
+        <ion-label class="correctAnswersScore">
+          <ion-icon name="checkmark-outline"></ion-icon> Correct Answers: {{correctAnswers}}
         </ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>
-          Wrong Answers: {{wrongAnswers}}
+        <ion-label class="wrongAnswersScore">
+          <ion-icon name="close-outline"></ion-icon> Wrong Answers: {{wrongAnswers}}
         </ion-label>
       </ion-item>
-
-
       <ion-item>
-        <ion-label>
-          Percentage: {{percentage}}%
+        <ion-label class="percentageScore">
+          <ion-icon name="trophy-outline"></ion-icon> Percentage: {{percentage | number : '1.2-2'}}%
         </ion-label>
       </ion-item>
-      <div class="marginButton">
-        <ion-button (click)="takeSS()"> <ion-icon name="camera-outline"></ion-icon>Take Snapshot</ion-button>
-
-      </div>
     </ion-card>
   </div>
+  <ion-fab class="dismissBtn" vertical="bottom" horizontal="start" slot="fixed">
+    <ion-button class="ssBtn" fill="outline" (click)="takeSS()">
+      <ion-icon name="camera-outline"></ion-icon>
+      &nbsp; Screenshot
+    </ion-button>
+  </ion-fab>
 </ion-content>

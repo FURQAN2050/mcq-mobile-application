@@ -17,3 +17,24 @@ ion-content{
   // --background: url(../../assets/app-background.jpg) 0 0/100% 100% no-repeat;
   // --background:#2d3436;
 }
+.chapTitle{
+  color: white;
+  // font-weight: bold;
+  font-size: 16px;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.loading{
+  color: #30445c;
+  text-align: center;
+}
+.spinnerDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #30445c;
+
+}
+ 

@@ -12,7 +12,7 @@
   </ion-grid>
   <div class="main-div">
     <ion-card class="login-card">
-      
+
       <ion-card-header class="cardHeader">
         <ion-card-subtitle  class="align-center subTxt">Welcome</ion-card-subtitle>
         <ion-card-title class="align-center mainTxt"><b>Please Register!</b></ion-card-title>
@@ -23,41 +23,41 @@
           <img src="../../assets/loginPage.png" alt="">
         </ion-thumbnail>
       </div>
-      
+
       <ion-row >
         <ion-col>
-          <ion-item class="inputBoxes" lines="none">
-            <ion-label class="lblMain">Name</ion-label>
-             <ion-input class="inputBox1" [(ngModel)]="user.name"></ion-input>
+          <ion-item  lines="none">
+            <ion-label >Name</ion-label>
+             <ion-input  [(ngModel)]="user.name"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row >
         <ion-col>
-          <ion-item class="inputBoxes" lines="none">
-            <ion-label class="lblMain">Email</ion-label>
-             <ion-input class="inputBox1" [(ngModel)]="user.email"></ion-input>
+          <ion-item  lines="none">
+            <ion-label >Email</ion-label>
+             <ion-input  [(ngModel)]="user.email"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row >
         <ion-col>
-          <ion-item class="inputBoxes" lines="none">
-            <ion-label class="lblMain">Password</ion-label>
-             <ion-input class="inputBox1"  [(ngModel)]=user.password type="Password"></ion-input>
+          <ion-item  lines="none">
+            <ion-label >Password</ion-label>
+             <ion-input   [(ngModel)]=user.password type="Password"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row >
         <ion-col>
-          <ion-item class="inputBoxes" lines="none">
-            <ion-label class="lblMain">Confirm Password</ion-label>
-             <ion-input class="inputBox1"  [(ngModel)]=user.confirmPassword type="Password"></ion-input>
+          <ion-item  lines="none">
+            <ion-label >Confirm Password</ion-label>
+             <ion-input   [(ngModel)]=user.confirmPassword type="Password"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
     </ion-card>
-  </div>    
+  </div>
   <br>
   <ion-row>
     <ion-col>
@@ -67,7 +67,7 @@
       </ion-button>
     </ion-col>
   </ion-row>
-    
+
 </ion-content>
 <!-- <ion-footer>
   <ion-item >

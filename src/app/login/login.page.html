@@ -11,9 +11,9 @@
     <img  [routerLink]="['/main']"  src="../assets/logo.png">
   </ion-grid>
   <div class="main-div">
- 
+
     <ion-card  class="login-card">
-      
+
       <ion-card-header class="cardHeader">
         <ion-card-subtitle  class="align-center subTxt">Welcome</ion-card-subtitle>
         <ion-card-title class="align-center mainTxt"><b>Please Login!</b></ion-card-title>
@@ -26,25 +26,25 @@
       </div>
       <ion-row >
         <ion-col>
-          <ion-item class="inputBoxes" lines="none">
-            <ion-label class="lblMain">Email</ion-label>
-            <ion-input class="inputBox1" [(ngModel)]="email" type="email"></ion-input>
+          <ion-item  lines="none">
+            <ion-label >Email</ion-label>
+            <ion-input [(ngModel)]="email" type="email"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
 
       <ion-row >
         <ion-col>
-          <ion-item class="inputBoxes" lines="none">
-        <ion-label class="lblMain" >Password</ion-label>
-        <ion-input class="inputBoxes" [(ngModel)]="password" type="Password"></ion-input>
+          <ion-item  lines="none">
+        <ion-label  >Password</ion-label>
+        <ion-input  [(ngModel)]="password" type="Password"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
  <br>
  <br>
         </ion-card>
-      
+
   </div>
   <br>
         <ion-row>
@@ -55,7 +55,7 @@
             </ion-button>
           </ion-col>
         </ion-row>
-  
+
   <ion-row>
     <ion-col>
       <ion-button mode="ios" class="btnSignup" expand="block"  routerLink="/signup">

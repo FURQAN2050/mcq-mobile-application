@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Screenshot } from '@ionic-native/screenshot/ngx';
 import { ModalController } from '@ionic/angular';
-
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class McqResultModalPage implements OnInit {
   @Input() percentage: any;
   title:string=""
 
-  constructor( private screenshot: Screenshot,public modalController: ModalController) { }
+  constructor(private socialSharing:SocialSharing, private screenshot: Screenshot,public modalController: ModalController) { }
   dismiss() {
     // using the injected ModalController this page
     // can "dismiss" itself and optionally pass back data
@@ -48,6 +48,16 @@ export class McqResultModalPage implements OnInit {
       this.modalController.dismiss();
 
     });
+  }
+  openWhatsapp(){
+    this.socialSharing.shareViaWhatsApp("testEmail",null,null).then(()=>{
+      this.modalController.dismiss();
+    }).catch(err=>{
+      console.log(err);
+      this.modalController.dismiss();
+    })
+
+
   }
 
 }

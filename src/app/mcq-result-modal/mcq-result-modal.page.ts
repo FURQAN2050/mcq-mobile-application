@@ -48,16 +48,21 @@ export class McqResultModalPage implements OnInit {
       this.modalController.dismiss();
 
     });
+
   }
-  openWhatsapp(){
-    this.socialSharing.shareViaWhatsApp("testEmail",null,null).then(()=>{
+  openWhatsapp() {
+    this.screenshot.URI(80).then(onSuccess => {
+      let imageURL = onSuccess.URI;
+      this.socialSharing.shareViaWhatsApp(this.title, imageURL).then(() => {
+        // this.modalController.dismiss();
+      }).catch(err => {
+        console.log(err);
+        this.modalController.dismiss();
+      })
+    }, onError => {
+      console.log(onError)
       this.modalController.dismiss();
-    }).catch(err=>{
-      console.log(err);
-      this.modalController.dismiss();
-    })
-
-
+    });
   }
 
 }

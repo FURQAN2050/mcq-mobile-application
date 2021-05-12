@@ -14,7 +14,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 
 @NgModule({
-  declarations: [AppComponent,McqResultModalPage], //,McqResultModalPage
+  declarations: [AppComponent], //,McqResultModalPage
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,SDKBrowserModule.forRoot()],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },Screenshot,SocialSharing],
